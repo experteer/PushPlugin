@@ -48,14 +48,14 @@
 
 		<config-file target="AndroidManifest.xml" parent="/manifest/application">
 			<activity android:name="com.plugin.gcm.PushHandlerActivity" android:exported="true"/>
-			<receiver android:name="com.plugin.gcm.CordovaGCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND" >
+			<receiver android:name="com.experteer.career.push.ExtendedGcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND" >
 				<intent-filter>
 					<action android:name="com.google.android.c2dm.intent.RECEIVE" />
 					<action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 					<category android:name="$PACKAGE_NAME" />
 				</intent-filter>
 			</receiver>
-			<service android:name="com.plugin.gcm.GCMIntentService" />
+			<service android:name="com.experteer.career.push.ExtendedGcmIntentService" />
 		</config-file>
 
 		<source-file src="src/android/libs/gcm.jar" target-dir="libs/" />
@@ -65,6 +65,8 @@
 		<source-file src="src/android/com/plugin/gcm/PushPlugin.java" target-dir="src/com/plugin/gcm/" />
 		<source-file src="src/android/com/plugin/android-support-v13.jar" target-dir="libs/" />
 
+        <source-file src="src/android/com/experteer/career/push/ExtendedGcmBroadcastReceiver.java" target-dir="src/com/experteer/career/push/" />
+        <source-file src="src/android/com/experteer/career/push/ExtendedGcmIntentService.java" target-dir="src/com/experteer/career/push/" />
 	</platform>
 
     <!-- amazon-fireos -->

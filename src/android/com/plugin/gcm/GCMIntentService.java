@@ -14,9 +14,9 @@ import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 import com.google.android.gcm.GCMBaseIntentService;
-
+// Matthias: declared as abstract since it still appears in AndroidManifest (why?)
 @SuppressLint("NewApi")
-public class GCMIntentService extends GCMBaseIntentService {
+public abstract class GCMIntentService extends GCMBaseIntentService {
 
 	private static final String TAG = "GCMIntentService";
 	
