@@ -63,7 +63,7 @@ public class ExtendedGcmIntentService extends GCMIntentService {
         Intent openUrlIntent = new Intent(this, CordovaApp.class);
         openUrlIntent.putExtra("url", url);
 
-        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, openUrlIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent contentIntent = PendingIntent.getActivity(this, createUniqueNotificationId(), openUrlIntent, PendingIntent.FLAG_ONE_SHOT);
 
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
             .setSmallIcon(R.drawable.ic_notification)
