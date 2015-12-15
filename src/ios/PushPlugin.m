@@ -21,9 +21,17 @@
  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
  OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ 
+ 
+ 
+ ADAPTED for experteer, example push
+ 
+ {"aps":{"alert":"Hello from APNs Tester.","badge":1,"sound":"default","category" : "actions"},"p":"/career/profile"}
+ 
  */
 
 #import "PushPlugin.h"
+#import "Constants.h"
 
 @implementation PushPlugin
 
@@ -42,6 +50,173 @@
   [[UIApplication sharedApplication] unregisterForRemoteNotifications];
   [self successWithMessage:@"unregistered"];
 }
+
+
+- (NSString*)getButtonTitleWithLanguage:(NSString*)language AndActionIdentifier:(NSString*)identifier{
+    
+    if(language==nil){
+        return NSLocalizedString(@"NILKEY", "nullvalue");
+    }
+    
+    if([language caseInsensitiveCompare:@"it"]== NSOrderedSame){
+        
+        if([identifier isEqualToString:savedSearch_action0]){
+            return NSLocalizedString(@"VIEW_IT", "view");
+        }else if([identifier isEqualToString:savedSearch_action1]){
+            return NSLocalizedString(@"LATER_IT", "later");
+        }else if([identifier isEqualToString:contactRequest_action0]){
+            return NSLocalizedString(@"ACCEPT_IT", "accept");
+        }else if([identifier isEqualToString:contactRequest_action1]){
+            return NSLocalizedString(@"REJECT_IT", "reject");
+        }else if([identifier isEqualToString:profileView_action0]){
+            return NSLocalizedString(@"VIEW_IT", "view");
+        }else if([identifier isEqualToString:profileView_action1]){
+            return NSLocalizedString(@"LATER_IT", "later");
+        }
+        
+        
+    }else if([language caseInsensitiveCompare:@"nl"]== NSOrderedSame){
+        
+        if([identifier isEqualToString:savedSearch_action0]){
+            return NSLocalizedString(@"VIEW_NL", "view");
+        }else if([identifier isEqualToString:savedSearch_action1]){
+            return NSLocalizedString(@"LATER_NL", "later");
+        }else if([identifier isEqualToString:contactRequest_action0]){
+            return NSLocalizedString(@"ACCEPT_NL", "accept");
+        }else if([identifier isEqualToString:contactRequest_action1]){
+            return NSLocalizedString(@"REJECT_NL", "reject");
+        }else if([identifier isEqualToString:profileView_action0]){
+            return NSLocalizedString(@"VIEW_NL", "view");
+        }else if([identifier isEqualToString:profileView_action1]){
+            return NSLocalizedString(@"LATER_NL", "later");
+        }
+        
+    }else if([language caseInsensitiveCompare:@"es"]== NSOrderedSame){
+        
+        if([identifier isEqualToString:savedSearch_action0]){
+            return NSLocalizedString(@"VIEW_ES", "view");
+        }else if([identifier isEqualToString:savedSearch_action1]){
+            return NSLocalizedString(@"LATER_ES", "later");
+        }else if([identifier isEqualToString:contactRequest_action0]){
+            return NSLocalizedString(@"ACCEPT_ES", "accept");
+        }else if([identifier isEqualToString:contactRequest_action1]){
+            return NSLocalizedString(@"REJECT_ES", "reject");
+        }else if([identifier isEqualToString:profileView_action0]){
+            return NSLocalizedString(@"VIEW_ES", "view");
+        }else if([identifier isEqualToString:profileView_action1]){
+            return NSLocalizedString(@"LATER_ES", "later");
+        }
+        
+        
+    }else if([language caseInsensitiveCompare:@"en_gb"]== NSOrderedSame){
+        
+        if([identifier isEqualToString:savedSearch_action0]){
+            return NSLocalizedString(@"VIEW_EN_GB", "view");
+        }else if([identifier isEqualToString:savedSearch_action1]){
+             return NSLocalizedString(@"LATER_EN_GB", "later");
+        }else if([identifier isEqualToString:contactRequest_action0]){
+             return NSLocalizedString(@"ACCEPT_EN_GB", "accept");
+        }else if([identifier isEqualToString:contactRequest_action1]){
+             return NSLocalizedString(@"REJECT_EN_GB", "reject");
+        }else if([identifier isEqualToString:profileView_action0]){
+             return NSLocalizedString(@"VIEW_EN_GB", "view");
+        }else if([identifier isEqualToString:profileView_action1]){
+             return NSLocalizedString(@"LATER_EN_GB", "later");
+        }
+        
+        
+    }else if([language caseInsensitiveCompare:@"en_us"]== NSOrderedSame){
+        
+        
+        if([identifier isEqualToString:savedSearch_action0]){
+             return NSLocalizedString(@"VIEW_EN_US", "view");
+        }else if([identifier isEqualToString:savedSearch_action1]){
+             return NSLocalizedString(@"LATER_EN_US", "later");
+        }else if([identifier isEqualToString:contactRequest_action0]){
+             return NSLocalizedString(@"ACCEPT_EN_US", "accept");
+        }else if([identifier isEqualToString:contactRequest_action1]){
+             return NSLocalizedString(@"REJECT_EN_US", "reject");
+        }else if([identifier isEqualToString:profileView_action0]){
+             return NSLocalizedString(@"VIEW_EN_US", "view");
+        }else if([identifier isEqualToString:profileView_action1]){
+             return NSLocalizedString(@"LATER_EN_US", "later");
+        }
+
+        
+        
+    }else if([language caseInsensitiveCompare:@"de"]== NSOrderedSame){
+        
+        if([identifier isEqualToString:savedSearch_action0]){
+            return NSLocalizedString(@"VIEW_DE", "view");
+        }else if([identifier isEqualToString:savedSearch_action1]){
+            return NSLocalizedString(@"LATER_DE", "later");
+        }else if([identifier isEqualToString:contactRequest_action0]){
+            return NSLocalizedString(@"ACCEPT_DE", "accept");
+        }else if([identifier isEqualToString:contactRequest_action1]){
+            return NSLocalizedString(@"REJECT_DE", "reject");
+        }else if([identifier isEqualToString:profileView_action0]){
+            return NSLocalizedString(@"VIEW_DE", "view");
+        }else if([identifier isEqualToString:profileView_action1]){
+            return NSLocalizedString(@"LATER_DE", "later");
+        }
+        
+        
+    }else if([language caseInsensitiveCompare:@"fr"]== NSOrderedSame){
+        
+        if([identifier isEqualToString:savedSearch_action0]){
+            return NSLocalizedString(@"VIEW_FR", "view");
+        }else if([identifier isEqualToString:savedSearch_action1]){
+            return NSLocalizedString(@"LATER_FR", "later");
+        }else if([identifier isEqualToString:contactRequest_action0]){
+            return NSLocalizedString(@"ACCEPT_FR", "accept");
+        }else if([identifier isEqualToString:contactRequest_action1]){
+            return NSLocalizedString(@"REJECT_FR", "reject");
+        }else if([identifier isEqualToString:profileView_action0]){
+            return NSLocalizedString(@"VIEW_FR", "view");
+        }else if([identifier isEqualToString:profileView_action1]){
+            return NSLocalizedString(@"LATER_FR", "later");
+        }
+        
+        
+    }else if([language caseInsensitiveCompare:@"xx"]== NSOrderedSame){
+        
+        if([identifier isEqualToString:savedSearch_action0]){
+            return NSLocalizedString(@"VIEW_DE", "view");
+        }else if([identifier isEqualToString:savedSearch_action1]){
+            return NSLocalizedString(@"LATER_DE", "later");
+        }else if([identifier isEqualToString:contactRequest_action0]){
+            return NSLocalizedString(@"ACCEPT_DE", "accept");
+        }else if([identifier isEqualToString:contactRequest_action1]){
+            return NSLocalizedString(@"REJECT_DE", "reject");
+        }else if([identifier isEqualToString:profileView_action0]){
+            return NSLocalizedString(@"VIEW_DE", "view");
+        }else if([identifier isEqualToString:profileView_action1]){
+            return NSLocalizedString(@"LATER_DE", "later");
+        }
+
+        
+    }else if([language caseInsensitiveCompare:@"yy"]== NSOrderedSame){
+        
+        if([identifier isEqualToString:savedSearch_action0]){
+            return NSLocalizedString(@"VIEW_DE", "view");
+        }else if([identifier isEqualToString:savedSearch_action1]){
+            return NSLocalizedString(@"LATER_DE", "later");
+        }else if([identifier isEqualToString:contactRequest_action0]){
+            return NSLocalizedString(@"ACCEPT_DE", "accept");
+        }else if([identifier isEqualToString:contactRequest_action1]){
+            return NSLocalizedString(@"REJECT_DE", "reject");
+        }else if([identifier isEqualToString:profileView_action0]){
+            return NSLocalizedString(@"VIEW_DE", "view");
+        }else if([identifier isEqualToString:profileView_action1]){
+            return NSLocalizedString(@"LATER_DE", "later");
+        }
+        
+    }
+    
+    return NSLocalizedString(@"GO", "go");        
+}
+
+
 
 - (void)register:(CDVInvokedUrlCommand*)command;
 {
@@ -117,17 +292,109 @@
         NSLog(@"PushPlugin.register: Push notification type is set to none");
 
     isInline = NO;
+    
+    /**
+    // Interactive Notifications
+    NSString *leftPushButtonTitle = [[NSUserDefaults standardUserDefaults] stringForKey:@"i18n.leftpushbutton"];
+    NSString *rightPushButtonTitle = [[NSUserDefaults standardUserDefaults] stringForKey:@"i18n.rightpushbutton"];
+    if (leftPushButtonTitle!=NULL){
+        leftPushButtonTitle=@"";
+    }
+    if (rightPushButtonTitle!=NULL){
+        rightPushButtonTitle=@"";
+    }
+     **/
+    CVMapper *mapper = [[CVMapper alloc] init];
+    NSString *languageFromWebApp = [mapper getLanguage];
+    EXLog(@"LANGUAGE: %@",languageFromWebApp);
+    
+    // SAVED_SEARCH
+    
+    UIMutableUserNotificationAction *SAVED_SEARCH_action0;
+    SAVED_SEARCH_action0 = [[UIMutableUserNotificationAction alloc] init];
+    [SAVED_SEARCH_action0 setActivationMode:UIUserNotificationActivationModeForeground];
+    [SAVED_SEARCH_action0 setTitle:[self getButtonTitleWithLanguage:languageFromWebApp AndActionIdentifier:savedSearch_action0]];
+    [SAVED_SEARCH_action0 setIdentifier:savedSearch_action0];
+    [SAVED_SEARCH_action0 setDestructive:NO];
+    [SAVED_SEARCH_action0 setAuthenticationRequired:NO];
+    
+    UIMutableUserNotificationAction *SAVED_SEARCH_action1;
+    SAVED_SEARCH_action1 = [[UIMutableUserNotificationAction alloc] init];
+    [SAVED_SEARCH_action1 setActivationMode:UIUserNotificationActivationModeBackground];
+    [SAVED_SEARCH_action1 setTitle:[self getButtonTitleWithLanguage:languageFromWebApp AndActionIdentifier:savedSearch_action1]];
+    [SAVED_SEARCH_action1 setIdentifier:savedSearch_action1];
+    [SAVED_SEARCH_action1 setDestructive:NO];
+    [SAVED_SEARCH_action1 setAuthenticationRequired:NO];
+    
+    UIMutableUserNotificationCategory *SAVED_SEARCH;
+    SAVED_SEARCH = [[UIMutableUserNotificationCategory alloc] init];
+    [SAVED_SEARCH setIdentifier:categorySAVED_SEARCH];
+    [SAVED_SEARCH setActions:@[SAVED_SEARCH_action0, SAVED_SEARCH_action1]forContext:UIUserNotificationActionContextDefault];
+    
+    
+    // CONTACT_REQUEST
+    UIMutableUserNotificationAction *CONTACT_REQUEST_action0;
+    CONTACT_REQUEST_action0 = [[UIMutableUserNotificationAction alloc] init];
+    [CONTACT_REQUEST_action0 setActivationMode:UIUserNotificationActivationModeForeground];
+    [CONTACT_REQUEST_action0 setTitle:[self getButtonTitleWithLanguage:languageFromWebApp AndActionIdentifier:contactRequest_action0]];
+    [CONTACT_REQUEST_action0 setIdentifier:contactRequest_action0];
+    [CONTACT_REQUEST_action0 setDestructive:NO];
+    [CONTACT_REQUEST_action0 setAuthenticationRequired:NO];
+    
+    UIMutableUserNotificationAction *CONTACT_REQUEST_action1;
+    CONTACT_REQUEST_action1 = [[UIMutableUserNotificationAction alloc] init];
+    [CONTACT_REQUEST_action1 setActivationMode:UIUserNotificationActivationModeForeground];
+    [CONTACT_REQUEST_action1 setTitle:[self getButtonTitleWithLanguage:languageFromWebApp AndActionIdentifier:contactRequest_action1]];
+    [CONTACT_REQUEST_action1 setIdentifier:contactRequest_action1];
+    [CONTACT_REQUEST_action1 setDestructive:NO];
+    [CONTACT_REQUEST_action1 setAuthenticationRequired:NO];
+    
+    UIMutableUserNotificationCategory *CONTACT_REQUEST;
+    CONTACT_REQUEST = [[UIMutableUserNotificationCategory alloc] init];
+    [CONTACT_REQUEST setIdentifier:categoryCONTACT_REQUEST];
+    [CONTACT_REQUEST setActions:@[CONTACT_REQUEST_action0, CONTACT_REQUEST_action1]forContext:UIUserNotificationActionContextDefault];
+    
+    
+    //PROFILE_VIEW
+    UIMutableUserNotificationAction *PROFILE_VIEW_action0;
+    PROFILE_VIEW_action0 = [[UIMutableUserNotificationAction alloc] init];
+    [PROFILE_VIEW_action0 setActivationMode:UIUserNotificationActivationModeForeground];
+    [PROFILE_VIEW_action0 setTitle:[self getButtonTitleWithLanguage:languageFromWebApp AndActionIdentifier:profileView_action0]];
+    [PROFILE_VIEW_action0 setIdentifier:profileView_action0];
+    [PROFILE_VIEW_action0 setDestructive:NO];
+    [PROFILE_VIEW_action0 setAuthenticationRequired:NO];
+    
+    UIMutableUserNotificationAction *PROFILE_VIEW_action1;
+    PROFILE_VIEW_action1 = [[UIMutableUserNotificationAction alloc] init];
+    [PROFILE_VIEW_action1 setActivationMode:UIUserNotificationActivationModeBackground];
+    [PROFILE_VIEW_action1 setTitle:[self getButtonTitleWithLanguage:languageFromWebApp AndActionIdentifier:profileView_action1]];
+    [PROFILE_VIEW_action1 setIdentifier:profileView_action1];
+    [PROFILE_VIEW_action1 setDestructive:NO];
+    [PROFILE_VIEW_action1 setAuthenticationRequired:NO];
+    
+    
+    UIMutableUserNotificationCategory *PROFILE_VIEW;
+    PROFILE_VIEW = [[UIMutableUserNotificationCategory alloc] init];
+    [PROFILE_VIEW setIdentifier:categoryPROFILE_VIEW];
+    [PROFILE_VIEW setActions:@[PROFILE_VIEW_action0, PROFILE_VIEW_action1]forContext:UIUserNotificationActionContextDefault];
+    
+    NSSet *categories = [NSSet setWithObjects:SAVED_SEARCH,CONTACT_REQUEST,PROFILE_VIEW,nil];
+    
+    
+    // *******
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000
+    EXLog(@"Registering for Push OS_MAX>=80000");
     if ([[UIApplication sharedApplication]respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UserNotificationTypes categories:nil];
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UserNotificationTypes categories:categories];
         [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
         [[UIApplication sharedApplication] registerForRemoteNotifications];
     } else {
     		[[UIApplication sharedApplication] registerForRemoteNotificationTypes:notificationTypes];
     }
 #else
-		[[UIApplication sharedApplication] registerForRemoteNotificationTypes:notificationTypes];
+        EXLog(@"Registering for Push OS_MAX<80000");
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:notificationTypes];
 #endif
 
 	if (notificationMessage)			// if there is a pending startup notification
